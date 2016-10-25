@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<title>Black Friday Araujo</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 	<link rel="stylesheet" type="text/css" href="assets/css/normalize.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css">
@@ -78,7 +78,7 @@
 	<section id="blackFriday">
 		<div class="container">
 			<div class="row2 bg-white borda">
-				<div class="col-md-offset-1 col-md-4">
+				<div class="col-md-offset-1 col-md-4 col-sm-6">
 					<div class="box">
 					<img width="80%" src="assets/images/black-friday.jpg"/ alt="Black Friday">
 					<p>
@@ -86,7 +86,7 @@
 					<p>
 					</div>
 				</div>
-				<div class="col-md-4 col-md-offset-1">
+				<div class="col-md-4 col-md-offset-1 col-sm-6">
 					<div class="box">
 					<img width="85%" src="assets/images/logo.jpg"/ alt="Logo Araujo" class="logo-araujo">
 					<p>
