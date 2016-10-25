@@ -78,7 +78,7 @@
 	<section id="blackFriday">
 		<div class="container">
 			<div class="row2 bg-white borda">
-				<div class="col-md-offset-1 col-md-4 col-sm-6">
+				<div class="col-md-offset-1 col-md-4 col-sm-6 col-xs-6">
 					<div class="box">
 					<img width="80%" src="assets/images/black-friday.jpg"/ alt="Black Friday">
 					<p>
@@ -86,7 +86,7 @@
 					<p>
 					</div>
 				</div>
-				<div class="col-md-4 col-md-offset-1 col-sm-6">
+				<div class="col-md-4 col-md-offset-1 col-sm-6 col-xs-6">
 					<div class="box">
 					<img width="85%" src="assets/images/logo.jpg"/ alt="Logo Araujo" class="logo-araujo">
 					<p>
