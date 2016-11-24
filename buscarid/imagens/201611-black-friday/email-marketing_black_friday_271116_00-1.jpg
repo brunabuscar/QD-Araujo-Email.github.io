@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","errorBeacon":"bam.nr-data.net","licenseKey":"26ce5906fc","applicationID":"1074383","transactionName":"dFpaFUJdXl8HRx4XAEReR05ZXFZWGg==","queueTime":1,"applicationTime":661,"ttGuid":"","agentToken":null,"agent":""}</script>
+<script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"VgYAWF5QGwIAU1VRDwI="};window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o||e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(t,e,n){function r(t){try{c.console&&console.log(t)}catch(e){}}var o,i=t("ee"),a=t(12),c={};try{o=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(c.console=!0,o.indexOf("dev")!==-1&&(c.dev=!0),o.indexOf("nr_dev")!==-1&&(c.nrDev=!0))}catch(s){}c.nrDev&&i.on("internal-error",function(t){r(t.stack)}),c.dev&&i.on("fn-err",function(t,e,n){r(n.stack)}),c.dev&&(r("NR AGENT IN DEVELOPMENT MODE"),r("flags: "+a(c,function(t,e){return t}).join(", ")))},{}],2:[function(t,e,n){function r(t,e,n,r,o){try{d?d-=1:i("err",[o||new UncaughtException(t,e,n)])}catch(c){try{i("ierr",[c,(new Date).getTime(),!0])}catch(s){}}return"function"==typeof f&&f.apply(this,a(arguments))}function UncaughtException(t,e,n){this.message=t||"Uncaught error with no additional information",this.sourceURL=e,this.line=n}function o(t){i("err",[t,(new Date).getTime()])}var i=t("handle"),a=t(13),c=t("ee"),s=t("loader"),f=window.onerror,u=!1,d=0;s.features.err=!0,t(1),window.onerror=r;try{throw new Error}catch(l){"stack"in l&&(t(5),t(4),"addEventListener"in window&&t(3),s.xhrWrappable&&t(6),u=!0)}c.on("fn-start",function(t,e,n){u&&(d+=1)}),c.on("fn-err",function(t,e,n){u&&(this.thrown=!0,o(n))}),c.on("fn-end",function(){u&&!this.thrown&&d>0&&(d-=1)}),c.on("internal-error",function(t){i("ierr",[t,(new Date).getTime(),!0])})},{}],3:[function(t,e,n){function r(t){for(var e=t;e&&!e.hasOwnProperty(u);)e=Object.getPrototypeOf(e);e&&o(e)}function o(t){c.inPlace(t,[u,d],"-",i)}function i(t,e){return t[1]}var a=t("ee").get("events"),c=t(14)(a,!0),s=t("gos"),f=XMLHttpRequest,u="addEventListener",d="removeEventListener";e.exports=a,"getPrototypeOf"in Object?(r(document),r(window),r(f.prototype)):f.prototype.hasOwnProperty(u)&&(o(window),o(f.prototype)),a.on(u+"-start",function(t,e){var n=t[1],r=s(n,"nr@wrapped",function(){function t(){if("function"==typeof n.handleEvent)return n.handleEvent.apply(n,arguments)}var e={object:t,"function":n}[typeof n];return e?c(e,"fn-",null,e.name||"anonymous"):n});this.wrapped=t[1]=r}),a.on(d+"-start",function(t){t[1]=this.wrapped||t[1]})},{}],4:[function(t,e,n){var r=t("ee").get("raf"),o=t(14)(r),i="equestAnimationFrame";e.exports=r,o.inPlace(window,["r"+i,"mozR"+i,"webkitR"+i,"msR"+i],"raf-"),r.on("raf-start",function(t){t[0]=o(t[0],"fn-")})},{}],5:[function(t,e,n){function r(t,e,n){t[0]=a(t[0],"fn-",null,n)}function o(t,e,n){this.method=n,this.timerDuration="number"==typeof t[1]?t[1]:0,t[0]=a(t[0],"fn-",this,n)}var i=t("ee").get("timer"),a=t(14)(i),c="setTimeout",s="setInterval",f="clearTimeout",u="-start",d="-";e.exports=i,a.inPlace(window,[c,"setImmediate"],c+d),a.inPlace(window,[s],s+d),a.inPlace(window,[f,"clearImmediate"],f+d),i.on(s+u,r),i.on(c+u,o)},{}],6:[function(t,e,n){function r(t,e){d.inPlace(e,["onreadystatechange"],"fn-",c)}function o(){var t=this,e=u.context(t);t.readyState>3&&!e.resolved&&(e.resolved=!0,u.emit("xhr-resolved",[],t)),d.inPlace(t,v,"fn-",c)}function i(t){y.push(t),h&&(w=-w,b.data=w)}function a(){for(var t=0;t<y.length;t++)r([],y[t]);y.length&&(y=[])}function c(t,e){return e}function s(t,e){for(var n in t)e[n]=t[n];return e}t(3);var f=t("ee"),u=f.get("xhr"),d=t(14)(u),l=NREUM.o,p=l.XHR,h=l.MO,m="readystatechange",v=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"],y=[];e.exports=u;var g=window.XMLHttpRequest=function(t){var e=new p(t);try{u.emit("new-xhr",[e],e),e.addEventListener(m,o,!1)}catch(n){try{u.emit("internal-error",[n])}catch(r){}}return e};if(s(p,g),g.prototype=p.prototype,d.inPlace(g.prototype,["open","send"],"-xhr-",c),u.on("send-xhr-start",function(t,e){r(t,e),i(e)}),u.on("open-xhr-start",r),h){var w=1,b=document.createTextNode(w);new h(a).observe(b,{characterData:!0})}else f.on("fn-end",function(t){t[0]&&t[0].type===m||a()})},{}],7:[function(t,e,n){function r(t){var e=this.params,n=this.metrics;if(!this.ended){this.ended=!0;for(var r=0;r<d;r++)t.removeEventListener(u[r],this.listener,!1);if(!e.aborted){if(n.duration=(new Date).getTime()-this.startTime,4===t.readyState){e.status=t.status;var i=o(t,this.lastSize);if(i&&(n.rxSize=i),this.sameOrigin){var a=t.getResponseHeader("X-NewRelic-App-Data");a&&(e.cat=a.split(", ").pop())}}else e.status=0;n.cbTime=this.cbTime,f.emit("xhr-done",[t],t),c("xhr",[e,n,this.startTime])}}}function o(t,e){var n=t.responseType;if("json"===n&&null!==e)return e;var r="arraybuffer"===n||"blob"===n||"json"===n?t.response:t.responseText;return h(r)}function i(t,e){var n=s(e),r=t.params;r.host=n.hostname+":"+n.port,r.pathname=n.pathname,t.sameOrigin=n.sameOrigin}var a=t("loader");if(a.xhrWrappable){var c=t("handle"),s=t(8),f=t("ee"),u=["load","error","abort","timeout"],d=u.length,l=t("id"),p=t(11),h=t(10),m=window.XMLHttpRequest;a.features.xhr=!0,t(6),f.on("new-xhr",function(t){var e=this;e.totalCbs=0,e.called=0,e.cbTime=0,e.end=r,e.ended=!1,e.xhrGuids={},e.lastSize=null,p&&(p>34||p<10)||window.opera||t.addEventListener("progress",function(t){e.lastSize=t.loaded},!1)}),f.on("open-xhr-start",function(t){this.params={method:t[0]},i(this,t[1]),this.metrics={}}),f.on("open-xhr-end",function(t,e){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&e.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),f.on("send-xhr-start",function(t,e){var n=this.metrics,r=t[0],o=this;if(n&&r){var i=h(r);i&&(n.txSize=i)}this.startTime=(new Date).getTime(),this.listener=function(t){try{"abort"===t.type&&(o.params.aborted=!0),("load"!==t.type||o.called===o.totalCbs&&(o.onloadCalled||"function"!=typeof e.onload))&&o.end(e)}catch(n){try{f.emit("internal-error",[n])}catch(r){}}};for(var a=0;a<d;a++)e.addEventListener(u[a],this.listener,!1)}),f.on("xhr-cb-time",function(t,e,n){this.cbTime+=t,e?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof n.onload||this.end(n)}),f.on("xhr-load-added",function(t,e){var n=""+l(t)+!!e;this.xhrGuids&&!this.xhrGuids[n]&&(this.xhrGuids[n]=!0,this.totalCbs+=1)}),f.on("xhr-load-removed",function(t,e){var n=""+l(t)+!!e;this.xhrGuids&&this.xhrGuids[n]&&(delete this.xhrGuids[n],this.totalCbs-=1)}),f.on("addEventListener-end",function(t,e){e instanceof m&&"load"===t[0]&&f.emit("xhr-load-added",[t[1],t[2]],e)}),f.on("removeEventListener-end",function(t,e){e instanceof m&&"load"===t[0]&&f.emit("xhr-load-removed",[t[1],t[2]],e)}),f.on("fn-start",function(t,e,n){e instanceof m&&("onload"===n&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=(new Date).getTime()))}),f.on("fn-end",function(t,e){this.xhrCbStart&&f.emit("xhr-cb-time",[(new Date).getTime()-this.xhrCbStart,this.onload,e],e)})}},{}],8:[function(t,e,n){e.exports=function(t){var e=document.createElement("a"),n=window.location,r={};e.href=t,r.port=e.port;var o=e.href.split("://");!r.port&&o[1]&&(r.port=o[1].split("/")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=e.hostname||n.hostname,r.pathname=e.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname);var i=!e.protocol||":"===e.protocol||e.protocol===n.protocol,a=e.hostname===document.domain&&e.port===n.port;return r.sameOrigin=i&&(!e.hostname||a),r}},{}],9:[function(t,e,n){function r(){}function o(t,e,n){return function(){return i(t,[(new Date).getTime()].concat(c(arguments)),e?null:this,n),e?void 0:this}}var i=t("handle"),a=t(12),c=t(13),s=t("ee").get("tracer"),f=NREUM;"undefined"==typeof window.newrelic&&(newrelic=f);var u=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit"],d="api-",l=d+"ixn-";a(u,function(t,e){f[e]=o(d+e,!0,"api")}),f.addPageAction=o(d+"addPageAction",!0),f.setCurrentRouteName=o(d+"routeName",!0),e.exports=newrelic,f.interaction=function(){return(new r).get()};var p=r.prototype={createTracer:function(t,e){var n={},r=this,o="function"==typeof e;return i(l+"tracer",[Date.now(),t,n],r),function(){if(s.emit((o?"":"no-")+"fn-start",[Date.now(),r,o],n),o)try{return e.apply(this,arguments)}finally{s.emit("fn-end",[Date.now()],n)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(t,e){p[e]=o(l+e)}),newrelic.noticeError=function(t){"string"==typeof t&&(t=new Error(t)),i("err",[t,(new Date).getTime()])}},{}],10:[function(t,e,n){e.exports=function(t){if("string"==typeof t&&t.length)return t.length;if("object"==typeof t){if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if(!("undefined"!=typeof FormData&&t instanceof FormData))try{return JSON.stringify(t).length}catch(e){return}}}},{}],11:[function(t,e,n){var r=0,o=navigator.userAgent.match(/Firefox[\/\s](\d+\.\d+)/);o&&(r=+o[1]),e.exports=r},{}],12:[function(t,e,n){function r(t,e){var n=[],r="",i=0;for(r in t)o.call(t,r)&&(n[i]=e(r,t[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;e.exports=r},{}],13:[function(t,e,n){function r(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,o=n-e||0,i=Array(o<0?0:o);++r<o;)i[r]=t[e+r];return i}e.exports=r},{}],14:[function(t,e,n){function r(t){return!(t&&t instanceof Function&&t.apply&&!t[a])}var o=t("ee"),i=t(13),a="nr@original",c=Object.prototype.hasOwnProperty,s=!1;e.exports=function(t,e){function n(t,e,n,o){function nrWrapper(){var r,a,c,s;try{a=this,r=i(arguments),c="function"==typeof n?n(r,a):n||{}}catch(f){l([f,"",[r,a,o],c])}u(e+"start",[r,a,o],c);try{return s=t.apply(a,r)}catch(d){throw u(e+"err",[r,a,d],c),d}finally{u(e+"end",[r,a,s],c)}}return r(t)?t:(e||(e=""),nrWrapper[a]=t,d(t,nrWrapper),nrWrapper)}function f(t,e,o,i){o||(o="");var a,c,s,f="-"===o.charAt(0);for(s=0;s<e.length;s++)c=e[s],a=t[c],r(a)||(t[c]=n(a,f?c+o:o,i,c))}function u(n,r,o){if(!s||e){var i=s;s=!0;try{t.emit(n,r,o)}catch(a){l([a,n,r,o])}s=i}}function d(t,e){if(Object.defineProperty&&Object.keys)try{var n=Object.keys(t);return n.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(r){l([r])}for(var o in t)c.call(t,o)&&(e[o]=t[o]);return e}function l(e){try{t.emit("internal-error",e)}catch(n){}}return t||(t=o),n.inPlace=f,n.flag=a,n}},{}],ee:[function(t,e,n){function r(){}function o(t){function e(t){return t&&t instanceof r?t:t?s(t,c,i):i()}function n(n,r,o){if(!l.aborted){t&&t(n,r,o);for(var i=e(o),a=h(n),c=a.length,s=0;s<c;s++)a[s].apply(i,r);var f=u[g[n]];return f&&f.push([w,n,r,i]),i}}function p(t,e){y[t]=h(t).concat(e)}function h(t){return y[t]||[]}function m(t){return d[t]=d[t]||o(n)}function v(t,e){f(t,function(t,n){e=e||"feature",g[n]=e,e in u||(u[e]=[])})}var y={},g={},w={on:p,emit:n,get:m,listeners:h,context:e,buffer:v,abort:a,aborted:!1};return w}function i(){return new r}function a(){(u.api||u.feature)&&(l.aborted=!0,u=l.backlog={})}var c="nr@context",s=t("gos"),f=t(12),u={},d={},l=e.exports=o();l.backlog=u},{}],gos:[function(t,e,n){function r(t,e,n){if(o.call(t,e))return t[e];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return t[e]=r,r}var o=Object.prototype.hasOwnProperty;e.exports=r},{}],handle:[function(t,e,n){function r(t,e,n,r){o.buffer([t],r),o.emit(t,e,n)}var o=t("ee").get("handle");e.exports=r,r.ee=o},{}],id:[function(t,e,n){function r(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:a(t,i,function(){return o++})}var o=1,i="nr@id",a=t("gos");e.exports=r},{}],loader:[function(t,e,n){function r(){if(!b++){var t=w.info=NREUM.info,e=d.getElementsByTagName("script")[0];if(setTimeout(f.abort,3e4),!(t&&t.licenseKey&&t.applicationID&&e))return f.abort();s(y,function(e,n){t[e]||(t[e]=n)}),c("mark",["onload",a()],null,"api");var n=d.createElement("script");n.src="https://"+t.agent,e.parentNode.insertBefore(n,e)}}function o(){"complete"===d.readyState&&i()}function i(){c("mark",["domContent",a()],null,"api")}function a(){return(new Date).getTime()}var c=t("handle"),s=t(12),f=t("ee"),u=window,d=u.document,l="addEventListener",p="attachEvent",h=u.XMLHttpRequest,m=h&&h.prototype;NREUM.o={ST:setTimeout,CT:clearTimeout,XHR:h,REQ:u.Request,EV:u.Event,PR:u.Promise,MO:u.MutationObserver},t(9);var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-998.min.js"},g=h&&m&&m[l]&&!/CriOS/.test(navigator.userAgent),w=e.exports={offset:a(),origin:v,features:{},xhrWrappable:g};d[l]?(d[l]("DOMContentLoaded",i,!1),u[l]("load",r,!1)):(d[p]("onreadystatechange",o),u[p]("onload",r)),c("mark",["firstbyte",a()],null,"api");var b=0},{}]},{},["loader",2,7]);</script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="description" content="Gestão de tarefas, tempo e talento da sua equipe. Aumente a produtividade de forma simples e clara. Feito por gestores, para gestores." />
+    <meta name="keywords" content="produtividade, tarefas, projetos, gerenciamento de equipe, gestão de equipes, equipes, rede social coporativa, relatórios, desempenho, resultados, colaboração, gestão profissional de tarefas, task, tasks" />
+    <meta name="author" content="Runrun.it" />
+    <meta http-equiv="content-language" content="pt-BR">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1, minimum-scale=1, maximum-scale=1">
+
+    <meta content="authenticity_token" name="csrf-param" />
+<meta content="rpL4WD/NV38nGgQ/4m8kWvt5nlMQetDm+vxej7QEtJg=" name="csrf-token" />
+    <meta content="890cf2eb47403a45a35bde5f1932c362" name="assets-digest" />
+    <title>Runrun.it</title>
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Specific ie fixes, if any -->
+    <!--[if IE]>
+    <![endif]-->
+      <!--link href="/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" /-->
+
+    <!-- Le styles -->
+    <link href="https://d1cp24fad7kk9j.cloudfront.net/assets/application-75c5459618281ffeac52fb881c5388dd.css" media="screen" rel="stylesheet" type="text/css" />
+    
+
+    <!-- Le fav and touch icons -->
+    <link rel="apple-touch-icon" sizes="57x57" href="https://d1cp24fad7kk9j.cloudfront.net/assets/favicons/apple-touch-icon-57x57-0e931b0d14cee1843d0ea22adc2bacd0.png">
+<link rel="apple-touch-icon" sizes="114x114" href="https://d1cp24fad7kk9j.cloudfront.net/assets/favicons/apple-touch-icon-114x114-a894aec1c37d6946a07d6c474be7aa93.png">
+<link rel="apple-touch-icon" sizes="72x72" href="https://d1cp24fad7kk9j.cloudfront.net/assets/favicons/apple-touch-icon-72x72-8c3c187ba37029090b6a6883bccb9bbf.png">
+<link rel="apple-touch-icon" sizes="144x144" href="https://d1cp24fad7kk9j.cloudfront.net/assets/favicons/apple-touch-icon-144x144-d82b4bc1fdc8156cc37743f2fa0296a3.png">
+<link rel="apple-touch-icon" sizes="60x60" href="https://d1cp24fad7kk9j.cloudfront.net/assets/favicons/apple-touch-icon-60x60-63cc543fcd4028d5e91de9c883042f4a.png">
+<link rel="apple-touch-icon" sizes="120x120" href="https://d1cp24fad7kk9j.cloudfront.net/assets/favicons/apple-touch-icon-120x120-a96eff43da6bd9f32f3753f611b945bc.png">
+<link rel="apple-touch-icon" sizes="76x76" href="https://d1cp24fad7kk9j.cloudfront.net/assets/favicons/apple-touch-icon-76x76-7ce243f1acd3e6aa510b2c18eb89a130.png">
+<link rel="apple-touch-icon" sizes="152x152" href="https://d1cp24fad7kk9j.cloudfront.net/assets/favicons/apple-touch-icon-152x152-7a107abc20ac365e727d306d294fc855.png">
+<link rel="icon" type="image/png" href="https://d1cp24fad7kk9j.cloudfront.net/assets/favicons/favicon-196x196-4bb061f21a310c68fd1b431c3092a706.png" sizes="196x196">
+<link rel="icon" type="image/png" href="https://d1cp24fad7kk9j.cloudfront.net/assets/favicons/favicon-160x160-02a4ee3831c2b19424af1c8eac55051d.png" sizes="160x160">
+<link rel="icon" type="image/png" href="https://d1cp24fad7kk9j.cloudfront.net/assets/favicons/favicon-96x96-5bddb8e83428e4ca1ce4cb75fa7693e6.png" sizes="96x96">
+<link rel="icon" type="image/png" href="https://d1cp24fad7kk9j.cloudfront.net/assets/favicons/favicon-32x32-4857f11bd7ee63aa2e59d786b451721e.png" sizes="32x32">
+<link rel="icon" type="image/png" href="https://d1cp24fad7kk9j.cloudfront.net/assets/favicons/favicon-16x16-543c45fa16f642a9b69b248d992c3af7.png" sizes="16x16">
+<meta name="msapplication-config" content="/ieconfig.xml" />
+
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-itunes-app" content="app-id=1041556496">
+    <meta name="google-play-app" content="app-id=com.maissimples.runrunit">
+
+    <!-- JavaScripts -->
+    <script type="text/javascript">
+      window.runrun = window.runrun || {};
+      window.runrun.is_sme = false;
+      window.runrun.locale = 'pt-BR';
+      window.runrun.current_user_highlight_tutorial = false;
+      window.runrun.constants = {pusher_key: "4af0f7077054d0aedb48"};
+      window.runrun.log_errors = true;
+      window.runrun.available_course_languages = ["pt", "pt-BR"];
+      window.runrun.cert_on_locale = ["pt-BR", "en-US", "en-GB"];
+      window.runrun.enterprise = {"id":"sua-empresa--75761","name":"Buscar ID","phone":"+553125263441","country":"BR","company_size":"25","company_sector":"digital_marketing","attachments_sum":6341544561.0,"remaining_attachment_space":127876183439.0,"logo_url":"/logos/small/missing.png","alt_id":"602ca9cb5c803fd4d87dc4e843a23beb","oid":"c2c373bb5fa38","support_phone":"(11) 2769-9713","trial_days_left":null,"disabled_reason":null,"currency_symbol":"BRL","created_at":"2016-03-14T10:42:35-03:00","master_user_id":"rodrigo-rodrigues-do-nascimento","using_temporary_edition":false,"temporary_edition_expiration":"2016-08-13T23:59:59-03:00","signup_completed":null,"time_zone":"America/Sao_Paulo","plan":{"id":6025,"name_pt":"Plano 25","name_en":"Plan 25","max_storage":134217728000.0,"max_users":25,"is_free":false,"is_trial":false,"can_use_mobile":true}};
+      window.runrun.enterprise_configuration = {"work_on_task_only_with_estimates":true,"allow_other_involved_estimate_effort_in_tasks":true,"permitted_user_inviters":"admins","new_users_mutual_partners_by_default":true,"use_project_group_level":false,"use_project_sub_group_level":false};
+      window.runrun.current_user = {"id":"bruna-luiza-raimundo-alves","name":"Bruna Alves","email":"bruna@buscarid.com","avatar_url":"https://d22iebrrkdwkpr.cloudfront.net/avatars/sua-empresa--75761/bruna-luiza-raimundo-alves/dcc2a143cebdace7898659dde15258fdmini.png","avatar_large_url":"https://d22iebrrkdwkpr.cloudfront.net/avatars/sua-empresa--75761/bruna-luiza-raimundo-alves/dcc2a143cebdace7898659dde15258fdregular.png","super_compact_view":true,"compact_side_menu":false,"is_master":false,"is_manager":false,"can_create_client_project_and_task_types":false,"time_zone":"America/Sao_Paulo","position":"","on_vacation":false,"birthday":"1992-09-28","phone":"","gender":"female","marital_status":"","in_company_since":null,"is_certified":false,"language":"pt-BR","oid":"1bba0156802497","see_archived_clients_and_projects":null,"budget_manager":false,"shifts":[{"weekday":0,"work_day":false,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"},{"weekday":1,"work_day":true,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"},{"weekday":2,"work_day":true,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"},{"weekday":3,"work_day":true,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"},{"weekday":4,"work_day":true,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"},{"weekday":5,"work_day":true,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"},{"weekday":6,"work_day":false,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"}]};
+      window.runrun.page_metadata = {"data":{"task_list":{"page_tip_marked_as_read":true},"task_show":{"page_tip_marked_as_read":true,"page_tip_from_another_responsible":true},"teams":{"page_tip_marked_as_read":false},"bulletin":{"page_tip_marked_as_read":false},"reports":{"page_tip_marked_as_read":false},"projects":{"page_tip_marked_as_read":false,"already_created_a_project":false},"my_timesheet":{"page_tip_marked_as_read":false},"welcome_card":{"page_tip_marked_as_read":true}}};
+      window.runrun.admin_menu = [];
+      window.runrun.small_screen_break = 1199;
+    </script>
+
+    <!-- Set Runrunit global for Backbone -->
+    <script src="https://d1cp24fad7kk9j.cloudfront.net/assets/backbone_globals-c41a74a9b9550da045c3666998158bca.js" type="text/javascript"></script>
+    <script src="https://d1cp24fad7kk9j.cloudfront.net/assets/application-29bb65f15707070e2cea8db01af4ae18.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      // isMobile is now defined in application js
+      if (isMobile) {
+        $("head").append('<link href="https://d1cp24fad7kk9j.cloudfront.net/assets/shared/mobile-708797f941581263a053329f29f479be.css" media="screen" rel="stylesheet" type="text/css" />');
+        $.getScript("https://d1cp24fad7kk9j.cloudfront.net/assets/mobile_plugins-1e7b9e7bbdbc0fcbeb0c136f3e4a79ec.js", function(){});
+      }
+
+        window.runrun.subscription_expiration_date = "";
+    </script>
+
+    <!-- Preloader -->
+    <script type="text/javascript">
+    // To make sure loader will fadeOut.
+    //<![CDATA[
+      $(window).load(function() { // makes sure the whole site is loaded
+        $('#preloaderGroup').fadeOut(); // will first fade out the loading animation
+        $('#preloader').fadeOut(400, function(){
+          $('body').css({'overflow':'visible'});
+        }); // will fade out the white DIV that covers the website.
+      })
+    //]]>
+    </script>
+
+    
+    <script src="https://d1cp24fad7kk9j.cloudfront.net/assets/plugin_customization_pt_BR-c6cb893a66a6d045952392a7cb60bd9f.js" type="text/javascript"></script>
+    <script src="https://d1cp24fad7kk9j.cloudfront.net/assets/momentjs_customization_pt_BR-9f9c49aece7511ccd6fc1a627eea22b3.js" type="text/javascript"></script>
+      <!-- start Mixpanel -->
+  <script type="text/javascript">
+    (function(e,b){if(!b.__SV){var a,f,i,g;window.mixpanel=b;b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable time_event track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config reset people.set people.set_once people.increment people.append people.union people.track_charge people.clear_charges people.delete_user".split(" ");
+     for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src="undefined"!==typeof MIXPANEL_CUSTOM_LIB_URL?MIXPANEL_CUSTOM_LIB_URL:"file:"===e.location.protocol&&"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js".match(/^\/\//)?"https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js":"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f)}})(document,window.mixpanel||[]);
+    mixpanel.init('e186957de2064aa3eee3dcb2b3a70fed');
+
+    // For last touch attribution
+    function getQueryParam(url, param) {
+      // Expects a raw URL
+      param = param.replace(/[[]/, "\[").replace(/[]]/, "\]");
+      var regexS = "[\?&]" + param + "=([^&#]*)",
+          regex = new RegExp( regexS ),
+          results = regex.exec(url);
+      if (results === null || (results && typeof(results[1]) !== 'string' && results[1].length)) {
+        return '';
+      } else {
+        return decodeURIComponent(results[1]).replace(/\W/gi, ' ');
+      }
+    };
+    function campaignParams() {
+      var campaign_keywords = 'utm_source utm_medium utm_campaign utm_content utm_term'.split(' ')
+        , kw = ''
+        , params = {}
+      , first_params = {};
+      var index;
+      for (index = 0; index < campaign_keywords.length; ++index) {
+        kw = getQueryParam(document.URL, campaign_keywords[index]);
+        if (kw.length) {
+          params[campaign_keywords[index] + ' [last touch]'] = kw;
+        }
+      }
+      for (index = 0; index < campaign_keywords.length; ++index) {
+        kw = getQueryParam(document.URL, campaign_keywords[index]);
+        if (kw.length) {
+          first_params[campaign_keywords[index] + ' [first touch]'] = kw;
+        }
+      }
+      mixpanel.register(params);
+    }
+    campaignParams();
+
+    mixpanel.identify('1bba0156802497');
+</script>
+<!-- end Mixpanel -->
+
+      <!-- begin Wootric code (NPS survey platform)  -->
+    <script type="text/javascript" src="https://disutgh7q0ncc.cloudfront.net/beacon.js"></script>
+    <script type="text/javascript">
+
+      window.wootricSettings = {
+        email:'bruna@buscarid.com',
+        created_at: 1473702867,
+        account_token: 'NPS-a3c2cb90',
+        language: 'PT',
+        properties:{
+          role:'user',
+          pricing_plan:'teams',
+          user_created_at_date: 1473702867,
+          company_size: '25',
+          company_sector: 'digital_marketing'
+        }
+      };
+      window.wootric('run');
+  </script>
+<!-- end Wootric code -->
+
+
+    <script>
+      $(window).load(function(){
+        var flashMessageModel, flashMessageView;
+      });
+    </script>
+  </head>
+
+  <body class=" ">
+  <script>
+  var dataLayer = dataLayer || [];
+    dataLayer.push({'dl_uu_id':'c72b4e3644cc'});
+</script>
+
+<!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-KBQL9N"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KBQL9N');</script>
+<!-- End Google Tag Manager -->
+
+  <!-- Preloader -->
+  <div id="preloader">
+    <div id="preloaderGroup" class="preloader-rr-group">
+      <div class="circle-red"></div>
+      <div class="circle-white"></div>
+    </div>
+  </div>
+
+  <div id="overlay" class="overlay"></div>
+
+
+  
+
+  <!-- Sidemenu navigation -->
+    <aside class="sidemenu-container" id="sidebar">
+      <div class="menu-scroller">
+        <div data-region="menu-large"></div>
+          <div id="engagement_holder" class="engagement-container hidden-xs pull-left">
+            
+<div class="tutorial-holder hidden">
+  <div class="compact-version">
+    <i class="entypo graduation-cap icon"></i>
+    <span class="steps-remaining">
+      3/4
+    </span>
+    <span class="arrow arrow-right"></span>
+  </div>
+  <div id="nav_abc" class="tutorial">
+    <div class="tutorial__header semi-bold">
+      <span class="engagement-title">ABC do Runrun.it</span>
+    </div>
+    <ol class="tutorial__checklist">
+          <li data-step="create_task" class="engagement-completed tutorial__checklist-item">
+            <a type="button" href="javascript:void(0)" disabled="disabled" class="tutorial__checklist-item-link"><i class="icon icon-check-square-o"></i> <span class="tutorial__checklist-step is-disabled">Criar tarefa</span></a>
+          </li>
+          <li data-step="work_task" class="engagement-completed tutorial__checklist-item">
+            <a type="button" href="javascript:void(0)" disabled="disabled" class="tutorial__checklist-item-link"><i class="icon icon-check-square-o"></i> <span class="tutorial__checklist-step is-disabled">Trabalhar na tarefa</span></a>
+          </li>
+          <li data-step="close_task" class="engagement-completed tutorial__checklist-item">
+            <a type="button" href="javascript:void(0)" disabled="disabled" class="tutorial__checklist-item-link"><i class="icon icon-check-square-o"></i> <span class="tutorial__checklist-step is-disabled">Entregar uma tarefa</span></a>
+          </li>
+          <li data-step="fix_timesheet">
+            <a data-push=true href="/pt-BR/my_timesheet?tutorial=fix_timesheet" class="tutorial__checklist-item-link"><i class="icon icon-square-o"></i>
+            <span class="tutorial__checklist-step">Corrigir o seu tempo</span></a>
+          </li>
+    </ol>
+  </div>
+</div>
+
+
+          </div>
+        <div id="runrun-logo-holder" class="logo-holder hidden">
+          <i class="rr-icon-logo-runrun-circle"></i>
+        </div>
+      </div>
+    </aside>
+  <!-- Sidemenu navigation -->
+
+  <!-- user-configs on mobile devices -->
+  <div class="header__mobile-user-configs">
+    <div class="user-configs__close">
+  <a id="close_header_mobile_user_configs">
+    <i class="icon icon-arrow-right"></i>
+  </a>
+</div>
+
+<div class="user-configs__header">
+  <a class="pull-left">
+    <img alt="Dcc2a143cebdace7898659dde15258fdregular" class="img-responsive img-circle" data-avatar-for="bruna-luiza-raimundo-alves" src="https://d22iebrrkdwkpr.cloudfront.net/avatars/sua-empresa--75761/bruna-luiza-raimundo-alves/dcc2a143cebdace7898659dde15258fdregular.png" />
+  </a>
+  <span class="user-name">Bruna Alves</span>
+</div>
+<ul class="user-configs__menu">
+  <li>
+    <a href="/pt-BR/users/bruna-luiza-raimundo-alves/edit" data-push="true" role="menuitem"><i class="icon icon-user"></i> Meu perfil</a></li>
+  <li>
+    <a href="/pt-BR/alert_configurations/edit" data-push="true" role="menuitem"><i class="icon icon-bell-o"></i> Configurar Notificações</a>
+  </li>
+  <li>
+    <a href="/pt-BR/user_session" data-confirm="Tem certeza que deseja fazer logout?" data-method="delete" rel="nofollow"><i class="icon icon-sign-out"></i> Logout</a>
+  </li>
+  <!-- PLAN MIGRATE .icon icon-fire -->
+  <li>
+    <a href="/pt-BR/payments/choose_edition"><i class="icon icon icon-fire"></i> Atualize seu plano</a>
+  </li>
+</ul>
+<div class="mobile__recent-activities">
+  <ul id="mobile_recent_activities_list" class="user-configs__recent-tasks"></ul>
+</div>
+
+  </div>
+  <!-- user-configs on mobile devices -->
+
+  <!-- render mobile hamburger -->
+    <div class="header__nav-hamburger" id="burger-id">
+  <input type="checkbox" class="hamburger__toggle"/>
+  <div>
+    <div class="hamb hamb-one"></div>
+    <div class="hamb hamb-two"></div>
+    <div class="hamb hamb-three"></div>
+  </div>
+</div>
+
+  <!-- render mobile hamburger -->
+
+  <header id="application-header" class="application-header">
+    <div id="top-alert"></div>
+    <div class="header-container clearfix">
+  <div class="enterprise-logo pull-left">
+    <h1 class="header-logo">
+        <a href="/pt-BR/tasks" class="truncate enterprise-logo-name" data-push="true">Buscar ID</a>
+    </h1>
+  </div>
+    <!-- logo -->
+
+    <!--Five-Users-->
+    <div id="five-users-header" class="pull-left hidden-xs hidden-sm hidden-md"></div>
+
+    <!-- account-info -->
+
+    <div class="account-info pull-right">
+
+      <div class="search-container pull-left">
+        <div id="sb-search" class="sb-search">
+          <form accept-charset="UTF-8" action="/pt-BR/search" data-push="true" id="search_form" method="get"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /></div>
+            <input class="sb-search-input" type="text" value="" name="key" id="search" placeholder="Buscar" required>
+            <i class="rr-icon-search"></i>
+</form>        </div>
+        <div class="pull-right">
+          <a id="header_mobile_user_configs">
+            <i class="rr-icon-user-config"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="recent-activities dropdown pull-left hidden-xs">
+        <a id="recent_activities" href="#" data-toggle="dropdown" class="hidden pull-left dropdown-toggle">
+          <i class="icon rr-icon-recent-tasks"></i>
+        </a>
+        <div id="recent_activities_list" class="dropdown-menu pull-right"></div>
+      </div>
+
+      <div id="notifications_icon" class="notifications pull-left"></div>
+
+      <div class="dropdown account-img-misc pull-left hidden-xs">
+
+        <a href="#" data-toggle="dropdown">
+          <img alt="Dcc2a143cebdace7898659dde15258fdregular" class="img-responsive img-circle" data-avatar-for="bruna-luiza-raimundo-alves" src="https://d22iebrrkdwkpr.cloudfront.net/avatars/sua-empresa--75761/bruna-luiza-raimundo-alves/dcc2a143cebdace7898659dde15258fdregular.png" />
+        </a>
+
+        <ul class="user user-settings-menu dropdown-menu pull-right">
+          <li class="user-settings-menu__item">
+            <a href="/pt-BR/users/bruna-luiza-raimundo-alves/edit" data-push="true" role="menuitem"><i class="icon icon-user"></i> Meu perfil</a></li>
+          <li class="user-settings-menu__item">
+            <a href="/pt-BR/alert_configurations/edit" data-push="true" role="menuitem"><i class="icon icon-bell-o"></i> Configurar Notificações</a>
+          </li>
+              <li class="user-settings-menu__item">
+                <a href="/pt-BR/users/bruna-luiza-raimundo-alves/statistics" data-push="true"><i class="icon icon-line-chart"></i> RR-Rating&reg;</a>
+              </li>
+          <li class="user-settings-menu__item">
+            <a href="/pt-BR/user_session" data-confirm="Tem certeza que deseja fazer logout?" data-method="delete" rel="nofollow"><i class="icon icon-sign-out"></i> Logout</a>
+          </li>
+        </ul>
+
+      </div><!-- .account-img-container -->
+
+      <!-- button create task -->
+      <div id="create-btn-holder" class="create-btn-holder pull-left"></div>
+      <!-- end button create task -->
+
+    </div><!--.account-info-->
+</div>
+
+  </header>
+
+  <div id="application_main_wrapper" class="clearfix rr-full-height">
+    <div data-region="page-tip" class="page-tip"></div>
+    <div data-region="page-content" data-wiselinks="page" class="rr-full-height" id="page-content">
+
+      <!-- Content -->
+      
+      <!-- End of Content -->
+
+    </div><!-- #page-content -->
+    <div class="push"></div>
+  </div><!-- .application-main-wrapper -->
+
+
+
+
+<!-- Holder element for modals -->
+<div id="modal-container"></div>
+
+<div id="tutorial-modal-container" class="modal tutorial-modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 class="modal-title" id="tutorialTitle"></h3>
+      </div>
+      <div class="modal-body tutorial-modal__body">
+        <p id="tutorialVideo" class="tutorial-modal__video"></p>
+      </div>
+      <div class="tutorial-modal__footer">
+        <span>Conheça melhor o Runrun.it:</span>
+        <a href="https://support.runrun.it/forums/22168933-V%C3%ADdeos" class="tutorial-modal__links" target="_blank">
+          <i class="icon icon-youtube-play"></i> Mais vídeos
+        </a>
+          <a href="http://cursos.runrun.it/" class="tutorial-modal__links" target="_blank">
+            <i class="icon icon-graduation-cap"></i> Cursos
+          </a>
+        <a href="https://d22iebrrkdwkpr.cloudfront.net/public/PDF/pt-BR/Bem_vindo_ao_Runrunit_vs05.pdf" class="tutorial-modal__links" target="_blank">
+          <i class="icon icon-download"></i> Baixe um PDF
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="user-notifications-modal" class="modal fade">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content"></div>
+  </div>
+</div>
+
+<div id="bottom-notification" class="super-notify">
+  <div class="alert alert-warning" style="display:none;">
+    <span></span> <a href="#">Clique para atualizar</a>.
+  </div>
+</div>
+    <script id="flash-message-template" type="text/html">
+      <div class="alert alert-dismissable alert-{{KEY}}" id="{{KEY}}">
+  <a href="#" class="close pull-right" data-dismiss="alert">&times;</a>
+  <span>{{MSG}}</span>
+</div>
+
+    </script>
+      <!--- Intercom CRM -->
+  <script>
+    window.intercomSettings = {
+      app_id: '5in4fij5',
+      id: "396495",
+      user_id: "396495",
+      name: 'Bruna Alves',
+      email: 'bruna@buscarid.com',
+      created_at: 1473702867,
+      user_hash: 'd8ba8ac03f66ca18ae82fbe090c232989860c93d',
+      custom_data: {
+        company: 'Buscar ID',
+        plan_id: '6025',
+        language: 'pt-BR',
+        is_admin: 'no',
+        is_enterprise_creator: 'no',
+        is_team_leader: 'no',
+        is_manager: 'no',
+        on_vacation: 'false',
+        is_certified: false,
+        tutorial_step_create_task: true,
+        tutorial_step_work_task: true,
+        tutorial_step_close_task: true,
+        tutorial_step_fix_timesheet: false,
+        tutorial_completed: false,
+        is_active: 'yes'
+      },
+      company: {
+          id: '174072',
+          name: 'Buscar ID',
+          phone: '+553125263441',
+          company_size: '25',
+          company_sector: 'digital_marketing',
+          created_at: 1457962955,
+          mastercard: 'no',
+          plan: 'Plano 25',
+          plan_id: '6025',
+          subscription_expiration_date: 'undefined',
+          monthly_spend: '625',
+          campaign_source: 'undefined',
+          campaign_title: 'undefined',
+          deleted_at: 'undefined',
+          last_seen_web: '2016-11-24 17:06:44 -0200',
+          storage_use: '6341544561.0',
+          is_active: 'yes',
+          rr_teams: 12,
+          rr_users: 25,
+          rr_admins: 8,
+          rr_managers: 9
+      }
+    };
+  </script>
+    <script>(function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',intercomSettings);}else{var d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args){i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/5in4fij5';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);}if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})()</script>
+
+
+    <script type="text/javascript">
+      $(function() {
+        
+      });
+    </script>
+
+  
+
+  
+  <script id="top-banner" type="text/html">
+    <div style="position:fixed;top:0;width:100%;padding:0;margin:0;z-index:9999">
+      <div class="alert alert-info" style="margin:0;border-radius:0;display:block;text-align:center;border-color:#ddd">
+        <a class="close" data-dismiss="alert" href="#">&times;</a>
+        <span style="font-size:1.2em">{{MESSAGE}}</span>
+      </div>
+    </div>
+  </script>
+
+    <!-- Preloaded models -->
+    <script type="text/javascript">
+      Runrunit.preloader = new Preloader(Runrunit.Models);
+      Runrunit.preloader.push("User", [{"id":"andre-pierazoli","name":"André Pierazoli","email":"andre@buscarid.com","avatar_url":"https://d22iebrrkdwkpr.cloudfront.net/avatars/sua-empresa--75761/andre-pierazoli/095fd312322672bcbdc416a3f1424d33mini.jpg","avatar_large_url":"https://d22iebrrkdwkpr.cloudfront.net/avatars/sua-empresa--75761/andre-pierazoli/095fd312322672bcbdc416a3f1424d33regular.jpg","compact_side_menu":null,"is_master":false,"is_manager":false,"can_create_client_project_and_task_types":true,"time_zone":"America/Sao_Paulo","position":"Especialista Mídia Online","on_vacation":false,"birthday":"1986-05-27","phone":"","gender":"male","marital_status":"single","in_company_since":"2015-02-01","is_certified":false,"language":"pt-BR","oid":"19481a133d1b5c","see_archived_clients_and_projects":null,"budget_manager":false,"shifts":[{"weekday":0,"work_day":false,"shift_start":"09:00:00","lunch_start":"12:20:00","lunch_end":"12:20:00","shift_end":"19:00:00"},{"weekday":1,"work_day":true,"shift_start":"09:00:00","lunch_start":"12:20:00","lunch_end":"12:20:00","shift_end":"19:00:00"},{"weekday":2,"work_day":true,"shift_start":"09:00:00","lunch_start":"12:20:00","lunch_end":"12:20:00","shift_end":"19:00:00"},{"weekday":3,"work_day":true,"shift_start":"09:00:00","lunch_start":"12:20:00","lunch_end":"12:20:00","shift_end":"19:00:00"},{"weekday":4,"work_day":true,"shift_start":"09:00:00","lunch_start":"12:20:00","lunch_end":"12:20:00","shift_end":"19:00:00"},{"weekday":5,"work_day":true,"shift_start":"09:00:00","lunch_start":"12:20:00","lunch_end":"12:20:00","shift_end":"19:00:00"},{"weekday":6,"work_day":false,"shift_start":"09:00:00","lunch_start":"12:20:00","lunch_end":"12:20:00","shift_end":"19:00:00"}]},{"id":"angelica-matos-guimaraes","name":"Angélica Matos Guimarães Gonçalves","email":"angelica@buscarid.com","avatar_url":"https://d22iebrrkdwkpr.cloudfront.net/avatars/sua-empresa--75761/angelica-matos-guimaraes/0f0b9f913969bf305df60c8dcfaea0d9mini.png","avatar_large_url":"https://d22iebrrkdwkpr.cloudfront.net/avatars/sua-empresa--75761/angelica-matos-guimaraes/0f0b9f913969bf305df60c8dcfaea0d9regular.png","compact_side_menu":false,"is_master":true,"is_manager":true,"can_create_client_project_and_task_types":true,"time_zone":"America/Sao_Paulo","position":"Gerente de Projetos e Processos","on_vacation":false,"birthday":"1984-11-10","phone":"","gender":"female","marital_status":"married","in_company_since":null,"is_certified":false,"language":"pt-BR","oid":"1afe84d3ae1f36","see_archived_clients_and_projects":null,"budget_manager":false,"shifts":[{"weekday":0,"work_day":false,"shift_start":"08:00:00","lunch_start":"12:00:00","lunch_end":"12:00:00","shift_end":"12:00:00"},{"weekday":1,"work_day":true,"shift_start":"08:00:00","lunch_start":"12:00:00","lunch_end":"12:00:00","shift_end":"12:00:00"},{"weekday":2,"work_day":true,"shift_start":"08:00:00","lunch_start":"12:00:00","lunch_end":"12:00:00","shift_end":"12:00:00"},{"weekday":3,"work_day":true,"shift_start":"08:00:00","lunch_start":"12:00:00","lunch_end":"12:00:00","shift_end":"12:00:00"},{"weekday":4,"work_day":true,"shift_start":"08:00:00","lunch_start":"12:00:00","lunch_end":"12:00:00","shift_end":"12:00:00"},{"weekday":5,"work_day":false,"shift_start":"08:00:00","lunch_start":"12:00:00","lunch_end":"12:00:00","shift_end":"12:00:00"},{"weekday":6,"work_day":false,"shift_start":"08:00:00","lunch_start":"12:00:00","lunch_end":"12:00:00","shift_end":"12:00:00"}]},{"id":"arianne-viana","name":"Arianne Viana","email":"arianne@buscarid.com","avatar_url":"https://d22iebrrkdwkpr.cloudfront.net/avatars/sua-empresa--75761/arianne-viana/05c61c6ef06ffbe0345c75ba48ab2705mini.png","avatar_large_url":"https://d22iebrrkdwkpr.cloudfront.net/avatars/sua-empresa--75761/arianne-viana/05c61c6ef06ffbe0345c75ba48ab2705regular.png","compact_side_menu":false,"is_master":true,"is_manager":true,"can_create_client_project_and_task_types":true,"time_zone":"America/Sao_Paulo","position":null,"on_vacation":false,"birthday":null,"phone":null,"gender":null,"marital_status":null,"in_company_since":null,"is_certified":false,"language":"pt-BR","oid":"1afe9293552861","see_archived_clients_and_projects":null,"budget_manager":false,"shifts":[{"weekday":0,"work_day":false,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"},{"weekday":1,"work_day":true,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"},{"weekday":2,"work_day":true,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"},{"weekday":3,"work_day":true,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"},{"weekday":4,"work_day":true,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"},{"weekday":5,"work_day":true,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"},{"weekday":6,"work_day":false,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"}]},{"id":"bruna-luiza-raimundo-alves","name":"Bruna Alves","email":"bruna@buscarid.com","avatar_url":"https://d22iebrrkdwkpr.cloudfront.net/avatars/sua-empresa--75761/bruna-luiza-raimundo-alves/dcc2a143cebdace7898659dde15258fdmini.png","avatar_large_url":"https://d22iebrrkdwkpr.cloudfront.net/avatars/sua-empresa--75761/bruna-luiza-raimundo-alves/dcc2a143cebdace7898659dde15258fdregular.png","super_compact_view":true,"compact_side_menu":false,"is_master":false,"is_manager":false,"can_create_client_project_and_task_types":false,"time_zone":"America/Sao_Paulo","position":"","on_vacation":false,"birthday":"1992-09-28","phone":"","gender":"female","marital_status":"","in_company_since":null,"is_certified":false,"language":"pt-BR","oid":"1bba0156802497","see_archived_clients_and_projects":null,"budget_manager":false,"shifts":[{"weekday":0,"work_day":false,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"},{"weekday":1,"work_day":true,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"},{"weekday":2,"work_day":true,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"},{"weekday":3,"work_day":true,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"},{"weekday":4,"work_day":true,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"},{"weekday":5,"work_day":true,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"},{"weekday":6,"work_day":false,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"}]},{"id":"cintia-moraes","name":"Cíntia Moraes","email":"cintia@buscarid.com","avatar_url":"https://d22iebrrkdwkpr.cloudfront.net/avatars/sua-empresa--75761/cintia-moraes/cfb6a65804e83ca89a0de308c5b0e46cmini.png","avatar_large_url":"https://d22iebrrkdwkpr.cloudfront.net/avatars/sua-empresa--75761/cintia-moraes/cfb6a65804e83ca89a0de308c5b0e46cregular.png","compact_side_menu":null,"is_master":true,"is_manager":true,"can_create_client_project_and_task_types":true,"time_zone":"America/Sao_Paulo","position":null,"on_vacation":false,"birthday":null,"phone":null,"gender":null,"marital_status":null,"in_company_since":null,"is_certified":false,"language":"pt-BR","oid":"1948233dac76ce","see_archived_clients_and_projects":true,"budget_manager":false,"shifts":[{"weekday":0,"work_day":false,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"},{"weekday":1,"work_day":true,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"},{"weekday":2,"work_day":true,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"},{"weekday":3,"work_day":true,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"},{"weekday":4,"work_day":true,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"},{"weekday":5,"work_day":true,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"},{"weekday":6,"work_day":false,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"}]},{"id":"daniela-greco","name":"Daniela Greco","email":"daniela@buscarid.com","avatar_url":"https://d22iebrrkdwkpr.cloudfront.net/avatars/sua-empresa--75761/daniela-greco/fd416db4a598401a0338210ebf00218bmini.jpg","avatar_large_url":"https://d22iebrrkdwkpr.cloudfront.net/avatars/sua-empresa--75761/daniela-greco/fd416db4a598401a0338210ebf00218bregular.jpg","compact_side_menu":false,"is_master":false,"is_manager":false,"can_create_client_project_and_task_types":false,"time_zone":"America/Sao_Paulo","position":"","on_vacation":false,"birthday":"1993-07-28","phone":"","gender":"","marital_status":"single","in_company_since":"2016-09-01","is_certified":false,"language":"pt-BR","oid":"1bba4aa9fb0027","see_archived_clients_and_projects":null,"budget_manager":false,"shifts":[{"weekday":0,"work_day":false,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"},{"weekday":1,"work_day":true,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"},{"weekday":2,"work_day":true,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"},{"weekday":3,"work_day":true,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"},{"weekday":4,"work_day":true,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"},{"weekday":5,"work_day":true,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"},{"weekday":6,"work_day":false,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"}]},{"id":"daniel-coelho","name":"Daniel Coelho","email":"daniel@buscarid.com","avatar_url":"https://d22iebrrkdwkpr.cloudfront.net/avatars/sua-empresa--75761/daniel-coelho/628cf2e9dd7eb20e32a566c83a6ea7bcmini.jpg","avatar_large_url":"https://d22iebrrkdwkpr.cloudfront.net/avatars/sua-empresa--75761/daniel-coelho/628cf2e9dd7eb20e32a566c83a6ea7bcregular.jpg","compact_side_menu":null,"is_master":true,"is_manager":true,"can_create_client_project_and_task_types":true,"time_zone":"America/Sao_Paulo","position":"Atendimento","on_vacation":false,"birthday":"1980-08-26","phone":"","gender":"male","marital_status":"single","in_company_since":"2016-03-01","is_certified":false,"language":"pt-BR","oid":"191dba656dd9d5","see_archived_clients_and_projects":null,"budget_manager":false,"shifts":[{"weekday":0,"work_day":false,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"},{"weekday":1,"work_day":true,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"},{"weekday":2,"work_day":true,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"},{"weekday":3,"work_day":true,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"},{"weekday":4,"work_day":true,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"},{"weekday":5,"work_day":true,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"},{"weekday":6,"work_day":false,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"}]},{"id":"darlan-moreira","name":"Darlan Moreira","email":"darlan@buscarid.com","avatar_url":"https://d22iebrrkdwkpr.cloudfront.net/avatars/sua-empresa--75761/darlan-moreira/196f6b85fea704ae25d715bb17650e37mini.jpg","avatar_large_url":"https://d22iebrrkdwkpr.cloudfront.net/avatars/sua-empresa--75761/darlan-moreira/196f6b85fea704ae25d715bb17650e37regular.jpg","compact_side_menu":null,"is_master":false,"is_manager":false,"can_create_client_project_and_task_types":false,"time_zone":"America/Sao_Paulo","position":"Mídia","on_vacation":false,"birthday":null,"phone":"","gender":"male","marital_status":"","in_company_since":null,"is_certified":false,"language":"pt-BR","oid":"195229a7787b7e","see_archived_clients_and_projects":null,"budget_manager":false,"shifts":[{"weekday":0,"work_day":false,"shift_start":"09:00:00","lunch_start":"13:00:00","lunch_end":"14:00:00","shift_end":"19:00:00"},{"weekday":1,"work_day":true,"shift_start":"09:00:00","lunch_start":"13:00:00","lunch_end":"14:00:00","shift_end":"19:00:00"},{"weekday":2,"work_day":true,"shift_start":"09:00:00","lunch_start":"13:00:00","lunch_end":"14:00:00","shift_end":"19:00:00"},{"weekday":3,"work_day":true,"shift_start":"09:00:00","lunch_start":"13:00:00","lunch_end":"14:00:00","shift_end":"19:00:00"},{"weekday":4,"work_day":true,"shift_start":"09:00:00","lunch_start":"13:00:00","lunch_end":"14:00:00","shift_end":"19:00:00"},{"weekday":5,"work_day":true,"shift_start":"09:00:00","lunch_start":"13:00:00","lunch_end":"14:00:00","shift_end":"19:00:00"},{"weekday":6,"work_day":false,"shift_start":"09:00:00","lunch_start":"13:00:00","lunch_end":"14:00:00","shift_end":"19:00:00"}]},{"id":"felipe-bunito-silva","name":"Felipe \"Bunito\" Silva","email":"felipe@buscarid.com","avatar_url":"https://d22iebrrkdwkpr.cloudfront.net/avatars/sua-empresa--75761/felipe-bunito-silva/367968a9084ced1dca41d586d255225amini.jpg","avatar_large_url":"https://d22iebrrkdwkpr.cloudfront.net/avatars/sua-empresa--75761/felipe-bunito-silva/367968a9084ced1dca41d586d255225aregular.jpg","compact_side_menu":null,"is_master":false,"is_manager":false,"can_create_client_project_and_task_types":true,"time_zone":"America/Sao_Paulo","position":"Gerente de SEO","on_vacation":false,"birthday":"1988-04-19","phone":"31 99671-7989","gender":"male","marital_status":"single","in_company_since":"2013-06-01","is_certified":false,"language":"pt-BR","oid":"19481ea874c915","see_archived_clients_and_projects":null,"budget_manager":false,"shifts":[{"weekday":0,"work_day":false,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"},{"weekday":1,"work_day":true,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"},{"weekday":2,"work_day":true,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"},{"weekday":3,"work_day":true,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"},{"weekday":4,"work_day":true,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"},{"weekday":5,"work_day":true,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"},{"weekday":6,"work_day":false,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"}]},{"id":"fernando-craviee","name":"Fernando Craviée","email":"fernando@buscarid.com","avatar_url":"https://d22iebrrkdwkpr.cloudfront.net/avatars/sua-empresa--75761/fernando-craviee/8c4c05cc6e548c1ab9f0e441ac5e6312mini.jpg","avatar_large_url":"https://d22iebrrkdwkpr.cloudfront.net/avatars/sua-empresa--75761/fernando-craviee/8c4c05cc6e548c1ab9f0e441ac5e6312regular.jpg","compact_side_menu":false,"is_master":false,"is_manager":false,"can_create_client_project_and_task_types":true,"time_zone":"America/Sao_Paulo","position":"Planejamento","on_vacation":false,"birthday":"1983-11-14","phone":"","gender":"male","marital_status":"","in_company_since":null,"is_certified":false,"language":"pt-BR","oid":"1b57b952749b35","see_archived_clients_and_projects":null,"budget_manager":false,"shifts":[{"weekday":0,"work_day":false,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"},{"weekday":1,"work_day":true,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"},{"weekday":2,"work_day":true,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"},{"weekday":3,"work_day":true,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"},{"weekday":4,"work_day":true,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"},{"weekday":5,"work_day":true,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"},{"weekday":6,"work_day":false,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"}]},{"id":"gabriel-silveira","name":"Gabriel Silveira","email":"gabriel@buscarid.com","avatar_url":"https://d22iebrrkdwkpr.cloudfront.net/avatars/sua-empresa--75761/gabriel-silveira/833459176e594d2b9f47e8f00cb9a6ccmini.jpg","avatar_large_url":"https://d22iebrrkdwkpr.cloudfront.net/avatars/sua-empresa--75761/gabriel-silveira/833459176e594d2b9f47e8f00cb9a6ccregular.jpg","compact_side_menu":false,"is_master":false,"is_manager":false,"can_create_client_project_and_task_types":false,"time_zone":"America/Sao_Paulo","position":"UX/UI","on_vacation":false,"birthday":"1990-05-27","phone":"","gender":"male","marital_status":"single","in_company_since":"2015-05-01","is_certified":false,"language":"pt-BR","oid":"1937016c880a39","see_archived_clients_and_projects":null,"budget_manager":false,"shifts":[{"weekday":0,"work_day":false,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"},{"weekday":1,"work_day":true,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"},{"weekday":2,"work_day":true,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"},{"weekday":3,"work_day":true,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"},{"weekday":4,"work_day":true,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"},{"weekday":5,"work_day":true,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"},{"weekday":6,"work_day":false,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"}]},{"id":"gustavo-cesar","name":"Gustavo César","email":"gustavo@buscarid.com","avatar_url":"https://d22iebrrkdwkpr.cloudfront.net/avatars/sua-empresa--75761/gustavo-cesar/1a6f2ca4450d8a72b0b411f9da5f6a08mini.jpg","avatar_large_url":"https://d22iebrrkdwkpr.cloudfront.net/avatars/sua-empresa--75761/gustavo-cesar/1a6f2ca4450d8a72b0b411f9da5f6a08regular.jpg","compact_side_menu":false,"is_master":false,"is_manager":false,"can_create_client_project_and_task_types":false,"time_zone":"America/Sao_Paulo","position":"Estrategista de Conteúdo","on_vacation":false,"birthday":"1993-09-21","phone":"","gender":"male","marital_status":"single","in_company_since":"2016-03-01","is_certified":false,"language":"pt-BR","oid":"193721810dca48","see_archived_clients_and_projects":null,"budget_manager":false,"shifts":[{"weekday":0,"work_day":false,"shift_start":"10:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"19:00:00"},{"weekday":1,"work_day":true,"shift_start":"10:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"19:00:00"},{"weekday":2,"work_day":true,"shift_start":"10:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"19:00:00"},{"weekday":3,"work_day":true,"shift_start":"10:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"19:00:00"},{"weekday":4,"work_day":true,"shift_start":"10:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"19:00:00"},{"weekday":5,"work_day":true,"shift_start":"10:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"19:00:00"},{"weekday":6,"work_day":false,"shift_start":"10:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"19:00:00"}]},{"id":"igor-daniel-rodrigues","name":"Igor Daniel","email":"igor@buscarid.com","avatar_url":"https://d22iebrrkdwkpr.cloudfront.net/avatars/sua-empresa--75761/igor-daniel-rodrigues/e93b360d0dfb3dfa39b0d2f00c990a14mini.png","avatar_large_url":"https://d22iebrrkdwkpr.cloudfront.net/avatars/sua-empresa--75761/igor-daniel-rodrigues/e93b360d0dfb3dfa39b0d2f00c990a14regular.png","compact_side_menu":null,"is_master":false,"is_manager":false,"can_create_client_project_and_task_types":true,"time_zone":"America/Sao_Paulo","position":"","on_vacation":false,"birthday":"1979-11-29","phone":"","gender":"male","marital_status":"civil_union","in_company_since":"2015-01-01","is_certified":false,"language":"pt-BR","oid":"19484c7ca1924f","see_archived_clients_and_projects":null,"budget_manager":false,"shifts":[{"weekday":0,"work_day":false,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"12:00:00","shift_end":"18:00:00"},{"weekday":1,"work_day":true,"shift_start":"13:00:00","lunch_start":"16:00:00","lunch_end":"16:00:00","shift_end":"19:00:00"},{"weekday":2,"work_day":true,"shift_start":"08:00:00","lunch_start":"12:00:00","lunch_end":"12:00:00","shift_end":"16:00:00"},{"weekday":3,"work_day":true,"shift_start":"08:00:00","lunch_start":"12:00:00","lunch_end":"12:00:00","shift_end":"16:00:00"},{"weekday":4,"work_day":true,"shift_start":"13:00:00","lunch_start":"16:00:00","lunch_end":"16:00:00","shift_end":"19:00:00"},{"weekday":5,"work_day":true,"shift_start":"13:00:00","lunch_start":"16:00:00","lunch_end":"16:00:00","shift_end":"17:00:00"},{"weekday":6,"work_day":false,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"12:00:00","shift_end":"18:00:00"}]},{"id":"isabella-magalhaes","name":"Isabella Magalhães","email":"isabella@buscarid.com","avatar_url":"https://d22iebrrkdwkpr.cloudfront.net/avatars/sua-empresa--75761/isabella-magalhaes/f6fe58a6c6a305aa21f550b4248c0241mini.png","avatar_large_url":"https://d22iebrrkdwkpr.cloudfront.net/avatars/sua-empresa--75761/isabella-magalhaes/f6fe58a6c6a305aa21f550b4248c0241regular.png","compact_side_menu":false,"is_master":false,"is_manager":false,"can_create_client_project_and_task_types":true,"time_zone":"America/Sao_Paulo","position":null,"on_vacation":false,"birthday":null,"phone":null,"gender":null,"marital_status":null,"in_company_since":null,"is_certified":false,"language":"pt-BR","oid":"19371cebd61c8f","see_archived_clients_and_projects":null,"budget_manager":false,"shifts":[{"weekday":0,"work_day":false,"shift_start":"10:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"19:00:00"},{"weekday":1,"work_day":true,"shift_start":"10:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"19:00:00"},{"weekday":2,"work_day":true,"shift_start":"10:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"19:00:00"},{"weekday":3,"work_day":true,"shift_start":"10:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"19:00:00"},{"weekday":4,"work_day":true,"shift_start":"10:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"19:00:00"},{"weekday":5,"work_day":true,"shift_start":"10:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"19:00:00"},{"weekday":6,"work_day":false,"shift_start":"10:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"19:00:00"}]},{"id":"jack-emerick","name":"Jack Emerick","email":"jack@buscarid.com","avatar_url":"https://d22iebrrkdwkpr.cloudfront.net/avatars/sua-empresa--75761/jack-emerick/1b93ca01ce59115f73cad32c6c1fc205mini.png","avatar_large_url":"https://d22iebrrkdwkpr.cloudfront.net/avatars/sua-empresa--75761/jack-emerick/1b93ca01ce59115f73cad32c6c1fc205regular.png","compact_side_menu":true,"is_master":false,"is_manager":false,"can_create_client_project_and_task_types":false,"time_zone":"America/Sao_Paulo","position":"Desenvolvedor Front-end","on_vacation":false,"birthday":"1991-01-11","phone":"","gender":"male","marital_status":"single","in_company_since":"2014-09-01","is_certified":false,"language":"pt-BR","oid":"1943c5049ae27a","see_archived_clients_and_projects":null,"budget_manager":false,"shifts":[{"weekday":0,"work_day":false,"shift_start":"10:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"19:00:00"},{"weekday":1,"work_day":true,"shift_start":"10:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"19:00:00"},{"weekday":2,"work_day":true,"shift_start":"10:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"19:00:00"},{"weekday":3,"work_day":true,"shift_start":"10:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"19:00:00"},{"weekday":4,"work_day":true,"shift_start":"10:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"19:00:00"},{"weekday":5,"work_day":true,"shift_start":"10:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"19:00:00"},{"weekday":6,"work_day":false,"shift_start":"10:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"19:00:00"}]},{"id":"jussara","name":"Jussara","email":"jussara@buscarid.com","avatar_url":"https://d22iebrrkdwkpr.cloudfront.net/avatars/sua-empresa--75761/jussara/f2cd7871119ea54492b337991dfd67edmini.png","avatar_large_url":"https://d22iebrrkdwkpr.cloudfront.net/avatars/sua-empresa--75761/jussara/f2cd7871119ea54492b337991dfd67edregular.png","compact_side_menu":null,"is_master":true,"is_manager":true,"can_create_client_project_and_task_types":true,"time_zone":"America/Sao_Paulo","position":null,"on_vacation":false,"birthday":null,"phone":null,"gender":null,"marital_status":null,"in_company_since":null,"is_certified":false,"language":"pt-BR","oid":"19588493ae6309","see_archived_clients_and_projects":null,"budget_manager":true,"shifts":[{"weekday":0,"work_day":false,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"},{"weekday":1,"work_day":true,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"},{"weekday":2,"work_day":true,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"},{"weekday":3,"work_day":true,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"},{"weekday":4,"work_day":true,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"},{"weekday":5,"work_day":true,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"},{"weekday":6,"work_day":false,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"}]},{"id":"leandro","name":"Leandro","email":"leandro@buscarid.com","avatar_url":"https://d22iebrrkdwkpr.cloudfront.net/avatars/sua-empresa--75761/leandro/a28dd1890c0dd97d703c941aed4f9a63mini.png","avatar_large_url":"https://d22iebrrkdwkpr.cloudfront.net/avatars/sua-empresa--75761/leandro/a28dd1890c0dd97d703c941aed4f9a63regular.png","compact_side_menu":null,"is_master":false,"is_manager":false,"can_create_client_project_and_task_types":false,"time_zone":"America/Sao_Paulo","position":"","on_vacation":false,"birthday":null,"phone":"","gender":"","marital_status":"","in_company_since":null,"is_certified":false,"language":"pt-BR","oid":"19603bcc6bdd80","see_archived_clients_and_projects":null,"budget_manager":false,"shifts":[{"weekday":0,"work_day":false,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"},{"weekday":1,"work_day":true,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"},{"weekday":2,"work_day":true,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"},{"weekday":3,"work_day":true,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"},{"weekday":4,"work_day":true,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"},{"weekday":5,"work_day":true,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"},{"weekday":6,"work_day":false,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"}]},{"id":"leonardo-braca","name":"Leonardo Braca","email":"braca@buscarid.com","avatar_url":"https://d22iebrrkdwkpr.cloudfront.net/avatars/sua-empresa--75761/leonardo-braca/e5ec7ec87607f4cd7d4523e2e421af82mini.jpg","avatar_large_url":"https://d22iebrrkdwkpr.cloudfront.net/avatars/sua-empresa--75761/leonardo-braca/e5ec7ec87607f4cd7d4523e2e421af82regular.jpg","compact_side_menu":null,"is_master":false,"is_manager":false,"can_create_client_project_and_task_types":true,"time_zone":"America/Sao_Paulo","position":"","on_vacation":false,"birthday":null,"phone":"","gender":"","marital_status":"","in_company_since":null,"is_certified":false,"language":"pt-BR","oid":"196044f6db38f2","see_archived_clients_and_projects":null,"budget_manager":false,"shifts":[{"weekday":0,"work_day":false,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"},{"weekday":1,"work_day":true,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"},{"weekday":2,"work_day":true,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"},{"weekday":3,"work_day":true,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"},{"weekday":4,"work_day":true,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"},{"weekday":5,"work_day":true,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"},{"weekday":6,"work_day":false,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"}]},{"id":"leonardo-soares","name":"Leonardo Soares","email":"leonardo@buscarid.com","avatar_url":"https://d22iebrrkdwkpr.cloudfront.net/avatars/sua-empresa--75761/leonardo-soares/1b3997e12f48bb4ef3cb05b387614e20mini.png","avatar_large_url":"https://d22iebrrkdwkpr.cloudfront.net/avatars/sua-empresa--75761/leonardo-soares/1b3997e12f48bb4ef3cb05b387614e20regular.png","compact_side_menu":false,"is_master":false,"is_manager":true,"can_create_client_project_and_task_types":true,"time_zone":"America/Sao_Paulo","position":null,"on_vacation":false,"birthday":null,"phone":null,"gender":null,"marital_status":null,"in_company_since":null,"is_certified":false,"language":"pt-BR","oid":"1943c06f6334c1","see_archived_clients_and_projects":null,"budget_manager":false,"shifts":[{"weekday":0,"work_day":false,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"},{"weekday":1,"work_day":true,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"},{"weekday":2,"work_day":true,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"},{"weekday":3,"work_day":true,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"},{"weekday":4,"work_day":true,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"},{"weekday":5,"work_day":true,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"},{"weekday":6,"work_day":false,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"}]},{"id":"lilia-barbosa","name":"Lilia Barbosa","email":"lilia@buscarid.com","avatar_url":"https://d22iebrrkdwkpr.cloudfront.net/avatars/sua-empresa--75761/lilia-barbosa/956306403d8faf6a68f94688d88f2565mini.png","avatar_large_url":"https://d22iebrrkdwkpr.cloudfront.net/avatars/sua-empresa--75761/lilia-barbosa/956306403d8faf6a68f94688d88f2565regular.png","compact_side_menu":false,"is_master":true,"is_manager":true,"can_create_client_project_and_task_types":true,"time_zone":"America/Sao_Paulo","position":"Assistente Financeiro","on_vacation":false,"birthday":"1983-12-25","phone":"031 96975077","gender":"female","marital_status":"single","in_company_since":"2015-07-01","is_certified":false,"language":"pt-BR","oid":"195836aafbd9c0","see_archived_clients_and_projects":false,"budget_manager":true,"shifts":[{"weekday":0,"work_day":false,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"},{"weekday":1,"work_day":true,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"},{"weekday":2,"work_day":true,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"},{"weekday":3,"work_day":true,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"},{"weekday":4,"work_day":true,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"},{"weekday":5,"work_day":true,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"},{"weekday":6,"work_day":false,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"}]},{"id":"luiza-vieira","name":"Luiza Vieira","email":"luiza.vieira@buscarid.com","avatar_url":"https://d22iebrrkdwkpr.cloudfront.net/avatars/sua-empresa--75761/luiza-vieira/b51b0e26f7862ffd7d4feec39720e425mini.png","avatar_large_url":"https://d22iebrrkdwkpr.cloudfront.net/avatars/sua-empresa--75761/luiza-vieira/b51b0e26f7862ffd7d4feec39720e425regular.png","compact_side_menu":true,"is_master":false,"is_manager":false,"can_create_client_project_and_task_types":false,"time_zone":"America/Sao_Paulo","position":"","on_vacation":false,"birthday":null,"phone":"","gender":"female","marital_status":"single","in_company_since":null,"is_certified":false,"language":"pt-BR","oid":"1a40990b47cf8d","see_archived_clients_and_projects":null,"budget_manager":false,"shifts":[{"weekday":0,"work_day":false,"shift_start":"09:00:00","lunch_start":"13:00:00","lunch_end":"14:00:00","shift_end":"19:00:00"},{"weekday":1,"work_day":true,"shift_start":"09:00:00","lunch_start":"13:00:00","lunch_end":"14:00:00","shift_end":"19:00:00"},{"weekday":2,"work_day":true,"shift_start":"09:00:00","lunch_start":"13:00:00","lunch_end":"14:00:00","shift_end":"19:00:00"},{"weekday":3,"work_day":true,"shift_start":"09:00:00","lunch_start":"13:00:00","lunch_end":"14:00:00","shift_end":"19:00:00"},{"weekday":4,"work_day":true,"shift_start":"09:00:00","lunch_start":"13:00:00","lunch_end":"14:00:00","shift_end":"19:00:00"},{"weekday":5,"work_day":true,"shift_start":"09:00:00","lunch_start":"13:00:00","lunch_end":"14:00:00","shift_end":"19:00:00"},{"weekday":6,"work_day":false,"shift_start":"09:00:00","lunch_start":"13:00:00","lunch_end":"14:00:00","shift_end":"19:00:00"}]},{"id":"mateus-correia","name":"Mateus Correia","email":"mateus@buscarid.com","avatar_url":"https://d22iebrrkdwkpr.cloudfront.net/avatars/sua-empresa--75761/mateus-correia/e7ad68a1d1b90e07a066075670417dddmini.jpg","avatar_large_url":"https://d22iebrrkdwkpr.cloudfront.net/avatars/sua-empresa--75761/mateus-correia/e7ad68a1d1b90e07a066075670417dddregular.jpg","compact_side_menu":true,"is_master":false,"is_manager":false,"can_create_client_project_and_task_types":false,"time_zone":"America/Sao_Paulo","position":"Designer","on_vacation":false,"birthday":"1993-12-30","phone":"","gender":"male","marital_status":"single","in_company_since":"2014-09-01","is_certified":false,"language":"pt-BR","oid":"193718569e6ed6","see_archived_clients_and_projects":null,"budget_manager":false,"shifts":[{"weekday":0,"work_day":false,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"},{"weekday":1,"work_day":true,"shift_start":"10:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"19:00:00"},{"weekday":2,"work_day":true,"shift_start":"10:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"19:00:00"},{"weekday":3,"work_day":true,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"},{"weekday":4,"work_day":true,"shift_start":"10:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"19:00:00"},{"weekday":5,"work_day":true,"shift_start":"10:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"19:00:00"},{"weekday":6,"work_day":false,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"}]},{"id":"rafaela-lemos","name":"Rafaela Lemos","email":"rafaela@buscarid.com","avatar_url":"https://d22iebrrkdwkpr.cloudfront.net/avatars/sua-empresa--75761/rafaela-lemos/bf1d52fa91bf3f1c52ec8810be44991amini.png","avatar_large_url":"https://d22iebrrkdwkpr.cloudfront.net/avatars/sua-empresa--75761/rafaela-lemos/bf1d52fa91bf3f1c52ec8810be44991aregular.png","compact_side_menu":true,"is_master":false,"is_manager":false,"can_create_client_project_and_task_types":false,"time_zone":"America/Sao_Paulo","position":null,"on_vacation":false,"birthday":null,"phone":null,"gender":null,"marital_status":null,"in_company_since":null,"is_certified":false,"language":"pt-BR","oid":"19372616457801","see_archived_clients_and_projects":null,"budget_manager":false,"shifts":[{"weekday":0,"work_day":false,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"},{"weekday":1,"work_day":true,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"},{"weekday":2,"work_day":true,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"},{"weekday":3,"work_day":true,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"},{"weekday":4,"work_day":true,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"},{"weekday":5,"work_day":true,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"},{"weekday":6,"work_day":false,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"}]},{"id":"rodrigo-rodrigues-do-nascimento","name":"Rodrigo Rodrigues do Nascimento","email":"rodrigo@buscarid.com","avatar_url":"https://d22iebrrkdwkpr.cloudfront.net/avatars/sua-empresa--75761/rodrigo-rodrigues-do-nascimento/44f7c7e57220595c8f4a51fb2007771cmini.png","avatar_large_url":"https://d22iebrrkdwkpr.cloudfront.net/avatars/sua-empresa--75761/rodrigo-rodrigues-do-nascimento/44f7c7e57220595c8f4a51fb2007771cregular.png","compact_side_menu":null,"is_master":true,"is_manager":true,"can_create_client_project_and_task_types":true,"time_zone":"America/Sao_Paulo","position":"","on_vacation":false,"birthday":null,"phone":"3191249442","gender":"","marital_status":"","in_company_since":null,"is_certified":false,"language":"pt-BR","oid":"191db13afe7e63","see_archived_clients_and_projects":null,"budget_manager":false,"shifts":[{"weekday":0,"work_day":false,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"},{"weekday":1,"work_day":true,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"},{"weekday":2,"work_day":true,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"},{"weekday":3,"work_day":true,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"},{"weekday":4,"work_day":true,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"},{"weekday":5,"work_day":true,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"},{"weekday":6,"work_day":false,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"}]},{"id":"thais-silveira","name":"Thais Silveira","email":"thais@buscarid.com","avatar_url":"https://d22iebrrkdwkpr.cloudfront.net/avatars/sua-empresa--75761/thais-silveira/a2b0e0b49fb12de769a05edf84974146mini.jpg","avatar_large_url":"https://d22iebrrkdwkpr.cloudfront.net/avatars/sua-empresa--75761/thais-silveira/a2b0e0b49fb12de769a05edf84974146regular.jpg","compact_side_menu":false,"is_master":true,"is_manager":true,"can_create_client_project_and_task_types":true,"time_zone":"America/Sao_Paulo","position":"","on_vacation":false,"birthday":null,"phone":"","gender":"","marital_status":"","in_company_since":null,"is_certified":false,"language":"pt-BR","oid":"194810e8cdbfea","see_archived_clients_and_projects":null,"budget_manager":false,"shifts":[{"weekday":0,"work_day":false,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"},{"weekday":1,"work_day":true,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"},{"weekday":2,"work_day":true,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"},{"weekday":3,"work_day":true,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"},{"weekday":4,"work_day":true,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"},{"weekday":5,"work_day":true,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"},{"weekday":6,"work_day":false,"shift_start":"09:00:00","lunch_start":"12:00:00","lunch_end":"13:00:00","shift_end":"18:00:00"}]}]);
+      Runrunit.preloader.push("Feature", [{"key_name":"task_project_team_management","name_i18n":"Gerenciamento de tarefas, projetos e equipes"},{"key_name":"bulletin_management","name_i18n":"Mural de comunicação"},{"key_name":"mobile_app","name_i18n":"Aplicativos Mobile (Android e iOS)"},{"key_name":"report__cost_per_client","name_i18n":"Custos por cliente por período"},{"key_name":"report__gantt","name_i18n":"Gráfico de Gantt"},{"key_name":"report__hours_inventory","name_i18n":"Controle de horas dos colaboradores"},{"key_name":"report__report_week_in_review","name_i18n":"'A Semana em Números' - Relatório semanal com resumo dos projetos"},{"key_name":"rr_rating","name_i18n":"RR-Rating - Indicadores de desempenho"},{"key_name":"report__spreadsheets","name_i18n":"Planilhas de controle de tarefas"},{"key_name":"integration__zapier","name_i18n":"Integração com +500 outros apps via Zapier"},{"key_name":"integration__api","name_i18n":"Acesso à API"},{"key_name":"documentation","name_i18n":"Runrun.it Docs: crie documentos para cada projeto"},{"key_name":"share_page","name_i18n":"Runrun.it SharePage: crie páginas para compartilhar arquivos"},{"key_name":"task__type_predictive_delivery_estimate","name_i18n":"Predição de entrega por tipo de tarefa"},{"key_name":"task__sequence_of_responsibles","name_i18n":"Sequência de responsáveis nas tarefas"},{"key_name":"task__prerequisite","name_i18n":"Tarefas pré-requisito"},{"key_name":"support__via_ticket","name_i18n":"Suporte através de tickets"},{"key_name":"courses_and_certification","name_i18n":"Cursos e Certificação"},{"key_name":"runrunit_community","name_i18n":"Comunidade Runrun.it (fórum)"}]);
+      
+    </script>
+    <script type="text/javascript">
+      window.isBackbone = true
+    </script>
+    <script type="text/javascript">
+        if ( window.Raven && Raven.setUser ) {
+          Raven.setUser({
+              email: "bruna@buscarid.com",
+              id: "bruna-luiza-raimundo-alves"
+          });
+        }
+
+        // Trial Countdown
+    </script>
+  </body>
+</html>
